@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUr_4sv2Hd1ynvPoZkM5URgdomHX2d-s5ALDkvqX5UFw&s">
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        }
+        .topContent{
+            width: 100vw;
+            height: 85px;
+            display: flex;
+            align-items: center;
+        }
+        .topContent > img{
+            height: 70px;
+            padding: 14px 6px 4px 28px;
+        }
+        .categories{
+            display: flex;
+        }
+        .category{
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            font-weight: 700;
+        }
+        .searchTab{
+            padding:0px 30px 0px 8px;
+            display: flex;
+            align-items: center;
+        }
+        .savedInfo{
+            margin: 12px 0px 0px 18px;
+        }
+        .savedInfo img{
+            padding: 0px 11px 0px 10px;
+            width: 22px;
+        }
+        .savedinfo_name{
+            font-size: 12px;
+            font-weight: 900;
+            text-align: center;
+        }
+        .midContent{
+            margin: 10px 0px 10px 55px;
+            display: flex;
+        }
+        .lowerContent{
+            display: flex;
+        }
+        .imageContent, .detailContent{
+            width: 50%;
+            /* border: 1px red solid; */
+        }
+        .detailContent{
+            margin-left: 30px;
+        }
+        .images{
+            margin: 20px 0px 0px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .images img{
+            width: 301px;
+            height: 400px;
+        }
+        h2{
+            margin: 20px 0px 0px ;
+        }
+        .start_of_detailContent p{
+            color: lightslategray;
+            font-size: 20px;
+            margin: 0px;
+        }
+        hr{
+            color: lightslategray;
+        }
+        .ratingBox{
+            border: 1px solid red;
+            border-color: lightgray;
+            width: 123px;
+            margin-top: 20px;
+            height: 24px;
+        }
+        .ratingBox:hover{
+            border-color: black;
+        }
+        .ratingBox span{
+            color: lightgray;
+        }
+        .price{
+            font-size: 20px;
+            font-weight: 700;
+        }
+        #mrp, s{
+            font-size: 20px;
+        }
+        #discountedPrice{
+            font-size: 20px;
+            font-weight: 700;
+            /* letter-spacing: .5px; */
+            color: #ff905a;
+        }
+        #taxesLine{
+            color: #03a685;
+            font-weight: 700;
+            font-size: 14px;
+            margin: 5px 10px 0 0;
+        }
+        .moreColor img{
+            height: 100px;
+            width: 80px;
+        }
+        .sizesContainer{
+            display: flex;
+            align-items:baseline;
+            margin-top: 5px;
+            padding:10px 0px 0px 0px;
+        }
+        .size1{
+            font-size: 18px;
+            margin-right: 65px;
+            font-weight: 700;
+        }
+        .size2{
+            font-size: 16px;
+            color: #ff3e6c;
+            font-weight: 700;
+        }
+        .sizeCost{
+            display: flex;
+            align-items:start;
+        }
+        .sizeBox{
+            border: 1px solid lightgray;
+            border-radius: 49px;
+            width: 114px;
+            text-align: center;
+            margin: 23px 20px 0px 0px;
+        }
+        .sizeBox:hover{
+            border-color: #ff3e6c;
+            cursor: pointer;
+        }
+        .sizePrice{
+            text-align: center;
+            padding-top: 22px;
+        }
+        .actionOption{
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .bag{
+            background-color: #ff3e6c;
+            border-color: #ff3e6c;
+            width: 330px;
+            height: 61px;
+            margin: 20px 35px 0px 0px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding-left: 46px;
+        }
+        .bag:hover{
+            cursor: pointer;
+        }
+        .bag span:first-child{
+            padding:20px;
+            height: 28px;
+            width: 40px;
+        }
+        .bag span:nth-child(2){
+            color: white;
+            font-size: 20px;
+            font-weight: 900;
+        }
+        .wishlist{
+            display: flex;
+            align-items: center;
+            padding-left: 46px;
+            border: 1px solid lightslategray;
+            width: 300px;
+            height: 57px;
+            margin: 20px 0px 0px 0px;
+            border-radius: 10px;
+        }
+        .wishlist:hover{
+            border-color: black;
+            cursor: pointer;
+        }
+        .wishlist span:first-child{ 
+            text-align: center;
+            padding: 15px;
+            height: 25px;
+            width: 54px;
+        }
+        .wishlist span:last-child{
+            text-align: center;
+            color: black;
+            font-size: 23px;
+            font-weight: 600;
+        }
+        .del_Options{
+            display: flex;
+            align-items: center;
+        }
+        .del_Options span:first-child{
+            font-weight: 700;
+        }
+        .del_Options span:nth-child(2){
+            padding: 9px 0px 0px 12px;
+        }
+        .pinCode{
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .pinCode_Check{
+            color: #ff3e6c;
+            font-weight: 700;
+        }
+        .pinCode_Check:hover{
+            cursor: pointer;
+        }
+        .pinCode input{
+            width: 232px;
+            height: 35px;
+        }
+        .pinCode+p{
+            color: #282C3F;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .features_to_Customer p{
+            font-size: 18px;
+            color: black;
+        }
+        .features_to_Customer{
+            margin-top: 20px;
+        }
+        .BestOffers{
+            display: flex;
+            align-items: center;
+        }
+        .BestOffers span:first-child{
+            font-weight: 700;
+            margin: 10px 10px 0px 0px;
+            font-size: 20px;
+        }
+        .BestOffers span img{height: 19px;
+         width: 22px;
+         padding-top: 23px;
+        }
+        .BestPrice{
+            font-weight: 700;
+            padding: 10px 0px 0px 0px;
+        }
+        .BestPrice span:nth-child(2){
+            color:#ff905a;
+        }
+        ul{
+            padding: 0px 20px 10px 20px;
+        }
+        li span{
+            font-weight: 700;
+        }
+        .hyperlinks a    {
+            color: #ff3e6c;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .hyperlinks+p{
+            margin-top: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            color: black;
+        }
+
+
+    </style>
+    <title>Buy Skybags Rhumba Soft Sided medium trolley Suitcase</title>
+</head>
+<body>
+<div class="fullContainer">
+        <div class="topContent">
+            <img src="https://images.indianexpress.com/2021/01/myntra.png">
+            <div class="categories">
+            <div class="category">
+                 MEN    
+            </div>
+            <div class="category"> 
+                 WOMEN   
+            </div>
+            <div class="category"> 
+                 KIDS   
+            </div>
+            <div class="category"> 
+                HOME & LIVING   
+            </div>
+            <div class="category">
+                 BEAUTY     
+            </div>
+            <div class="category"> 
+                 STUDIO <p><sup style="color: red; font-size: 100;"> New</sup> </p>
+            </div>
+        </div>
+
+        <div class="searchTab">
+            <input type="text" style="color: gray;
+            width: 327px;
+            height: 28px;
+            border-color: transparent;
+            background-color: #F5F5F6;" 
+            placeholder="Search for products,brands and more">
+        </div>
+
+        <div class="savedInfo">
+            <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\profile.png">
+            <div class="savedinfo_name"> Profile </div>
+         </div>
+         <div class="savedInfo">
+            <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\heart1.png">
+            <div class="savedinfo_name"> Wishlist </div>
+         </div>
+         <div class="savedInfo">
+            <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\bag.png">
+            <div class="savedinfo_name"> Bag </div>
+         </div>
+        </div>
+
+        <!-- END OF TOP CONTENT -->
+
+        <div class="midContent">
+            Home / Accessories / Unisex Accessories / Trolley Bag / 
+            <b> Skybags Trolley Bag>More By Skybags  </b>
+        </div>
+        <!-- END OF MID CONTENT  -->
+
+        <div class="lowerContent">
+            <div class="imageContent">
+                <div class="images">
+                    <div>
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20230927/y7Nd/6513c410ddf779151907144f/-473Wx593H-466622510-blue-MODEL5.jpg">
+
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20230927/31H7/6513c410ddf7791519071437/-1117Wx1400H-466622510-blue-MODEL.jpg">
+
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20230927/asRx/6513c410ddf779151907144b/-473Wx593H-466622510-blue-MODEL2.jpg">
+
+                    <img src="https://deq64r0ss2hgl.cloudfront.net/images/products_gallery_images/uppercase-jfk-hard-luggage-trolley-bag-medium-59888321920298.jpg">
+
+                    <img src="https://assets.ajio.com/medias/sys_master/root/20230927/MWK4/6513c410ddf7791519071449/-473Wx593H-466622510-blue-MODEL3.jpg">
+                </div>
+            </div>
+            </div>
+            <div class="detailContent"> 
+                <div class="start_of_detailContent">
+                    <h2> Skybags </h2> 
+                    <p> Rhumba Soft-Sided Medium Trolley Suitcase </p>
+                    <div class="ratingBox">
+                        <b> 4.6@ </b> <span> | </span> 89 Ratings
+                    </div> <hr>
+
+                    <span class="price"> ₹2,999 </span>
+                    <span id="mrp"> MRP </span>  <s> ₹7500 </s> 
+                    <span id="discountedPrice"> (Rs. 5201 OFF) </span> <br> <br>
+
+                    <b id="taxesLine"> inclusive of all taxes</b> <br> 
+
+                    <h4 style="margin-top: 30px;"> MORE COLOR </h4>
+
+                    <div class="moreColor">
+                    <a href="https://www.myntra.com/trolley-bag/skybags/skybags-printed-soft-sided-medium-trolley-suitcase/23933472/buy" target="_blank">
+                        <img src="https://assets.myntassets.com/v1/assets/images/23933472/2023/10/10/68379544-f55a-4543-9921-4bd3aabf09cd1696938521269SkybagsPrintedSoft-SidedMediumTrolleySuitcase1.jpg">
+                    </a>
+
+                    <div class="sizesContainer">
+                        <div class="size1">
+                            SELECT SIZE
+                        </div>
+                        <div class="size2"> 
+                            SIZE CHART >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sizeCost">
+                    <div class="sizeBox">
+                        M 
+                        <div class="sizePrice">
+                            Rs. 1799
+                        </div>
+                    </div>
+                    <div class="sizeBox">
+                        S
+                        <div class="sizePrice">
+                            Rs. 2299
+                        </div>
+                    </div>
+                    <div class="sizeBox">
+                        L
+                        <div class="sizePrice">
+                            Rs. 2699
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actionOption"> 
+                    <div>
+                    <button class="bag">
+                        <span>
+                    <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\pinkBag.png">
+                    </span>
+                        <span> ADD TO BAG </span>
+                    </button>
+                    </div>
+
+                    <div class="wishlist">
+                        <span> 
+                            <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\heart.png">
+                        </span>
+                        <span> WISHLIST </span>
+                    </div>
+                </div> <hr>
+
+
+
+                <div class="delivery">
+                    <div class="del_Options">
+                        <span>
+                            DELIVERY OPTIONS
+                        </span>
+                        <span>
+                            <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\truck.png">
+                        </span>
+                    </div>
+
+                    <div class="pinCode">
+                        <div>
+                        <input type="number" placeholder="Enter Pincode">
+                        </div>
+                        <div class="pinCode_Check">
+                            Check
+                        </div>
+                    </div>
+
+                    <p> Please enter PIN code to check delivery time & Pay on Delivery Availability </p>
+
+                    <div class="features_to_Customer">
+                    <p> 100% Original Products</p>
+                    <p> Pay on delivery might be Available</p>
+                    <p> Easy 14 days returns and exchanges</p>
+                    </div>
+                </div>
+
+                <div class="Offers">
+                    <div class="BestOffers">
+                        <span> Best Offers </span>
+                        <span> <img src="E:\Users\saman\OneDrive\Pictures\Screenshots\tag.png">
+                        </span>
+                    </div>
+                </div>
+                    <div class="BestPrice">
+                    <span>
+                        Best Price :
+                    </span>
+                    <span>
+                        Rs. 1799
+                    </span>
+                    </div>
+
+                    <ul> 
+                        <li> Coupon Discount: 20% off (Your total saving: Rs. 5701) </li>
+                        <li>Applicable on: Orders above Rs. 700 (only on first purchase)</li>
+                        <li> Coupon code:   <span>HELLO2024 </span>
+                        </li>
+                    </ul>
+                <div class="hyperlinks">
+                <a href="https://www.myntra.com/online-fashion-store"> View Eligible Products</a>
+                </div>
+
+                <p> 7.5% Discount on Myntra Kotak Credit Card. </p>
+                
+            <ul>
+                <li> Max Discount Up to ₹750 on every spends. </li>
+            </ul>
+            <div class="hyperlinks">
+                <a href="https://www.myntra.com/cbc/store"> Terms & Conditions </a>
+                </div>
+
+
+
+        </div>
+</div>
+</body>
+</html>
